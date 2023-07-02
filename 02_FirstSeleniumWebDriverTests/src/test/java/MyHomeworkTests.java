@@ -1,3 +1,7 @@
+import org.junit.Assert;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 public class MyHomeworkTests {
 
     /*
@@ -7,6 +11,42 @@ public class MyHomeworkTests {
     3) от 3 до 6 дней включительно - получить 30% стоимости билетов;
     4) 72 часа и менее до начала концерта - стоимость билетов не возвращается.
      */
+    @Test
+    @DisplayName("Возрат за 241 час")
+    public void  fullСost(){
+        var actualResult = getRefundTicketPricePercent(241, false,false);
+        Assert.assertEquals(100L, actualResult.longValue());
+    }
+    @Test
+    @DisplayName("Возрат за 145 час")
+    public void  halfСost(){
+        var actualResult = getRefundTicketPricePercent(145, false,false);
+        Assert.assertEquals(50L, actualResult.longValue());
+    }
+    @Test
+    @DisplayName("Возрат за 145 час")
+    public void  thirdСost(){
+        var actualResult = getRefundTicketPricePercent(73, false,false);
+        Assert.assertEquals(30L, actualResult.longValue());
+    }
+    @Test
+    @DisplayName("Возрат за 145 час")
+    public void  zeroСost(){
+        var actualResult = getRefundTicketPricePercent(72, false,false);
+        Assert.assertEquals(0L, actualResult.longValue());
+    }
+    @Test
+    @DisplayName("Отмена концерта")
+    public void  cancellationConcert(){
+        var actualResult = getRefundTicketPricePercent(241, true,false);
+        Assert.assertEquals(100L, actualResult.longValue());
+    }
+    @Test
+    @DisplayName("Перенос концерта")
+    public void  reschedulingConcert(){
+        var actualResult = getRefundTicketPricePercent(241, false,true);
+        Assert.assertEquals(100L, actualResult.longValue());
+    }
     private Integer getRefundTicketPricePercent(Integer hoursBeforeConcert, Boolean wasConcertCancelled, Boolean wasConcertRescheduled)
     {
         if(wasConcertCancelled && wasConcertRescheduled) return 100;
@@ -27,6 +67,46 @@ public class MyHomeworkTests {
     - от 56 баллов (не включительно) до 71 (включительно), его оценка равна 4;
     - от 72 баллов (включительно) до 100 баллов (включительно), его оценка равна 5.
      */
+    @org.junit.Test
+    public void  markTwo1(){
+        var actualResult = getMarkResult(0);
+        Assert.assertEquals("2", actualResult);
+    }
+    @org.junit.Test
+    public void  markTwo2(){
+        var actualResult = getMarkResult(35);
+        Assert.assertEquals("2", actualResult);
+    }
+    @org.junit.Test
+    public void  markThree1 (){
+        var actualResult = getMarkResult(36);
+        Assert.assertEquals("3", actualResult);
+    }
+    @org.junit.Test
+    public void  markThree2 (){
+        var actualResult = getMarkResult(56);
+        Assert.assertEquals("3", actualResult);
+    }
+    @org.junit.Test
+    public void  markFour1(){
+        var actualResult = getMarkResult(70);
+        Assert.assertEquals("4", actualResult);
+    }
+    @org.junit.Test
+    public void  markFour2(){
+        var actualResult = getMarkResult(57);
+        Assert.assertEquals("4", actualResult);
+    }
+    @org.junit.Test
+    public void  markFive1(){
+        var actualResult = getMarkResult(72);
+        Assert.assertEquals("5", actualResult);
+    }
+    @org.junit.Test
+    public void  markFive2(){
+        var actualResult = getMarkResult(73);
+        Assert.assertEquals("5", actualResult);
+    }
     private String getMarkResult(Integer mark)
     {
         if(mark >= 0 && mark <= 35) return "2";
