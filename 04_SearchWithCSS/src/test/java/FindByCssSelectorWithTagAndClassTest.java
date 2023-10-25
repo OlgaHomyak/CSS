@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class FindByCssSelectorWithIdTagAndClass {
+public class FindByCssSelectorWithTagAndClassTest {
     /* В этом классе можете описать тесты для домашнего задания */
 
     private WebDriver driver;
@@ -23,10 +23,10 @@ public class FindByCssSelectorWithIdTagAndClass {
         driver.quit();
     }
 
-    private By emailSelector = By.cssSelector("input#email.form-input.input-data");
-    private By password = By.cssSelector("input#password.form-input.password");
+    private By emailSelector = By.cssSelector("input.form-input.input-data");
+    private By password = By.cssSelector("input.form-input.password");
     private By enter = By.cssSelector("button#submit.form-submit");
-    private By messageLocator = By.cssSelector("pre#error.form-error-password-email");
+    private By messageLocator = By.cssSelector("pre.form-error-password-email");
     @Test
     public void  funnySocks(){
         driver.navigate().to("https://qajava.skillbox.ru/module04/homework/auth/changed.html");
@@ -41,3 +41,4 @@ public class FindByCssSelectorWithIdTagAndClass {
 
 
 }
+

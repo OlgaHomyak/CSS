@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class FindByCssSelector {
+public class FindByCssSelectorTest {
 
     /* В этом классе можете описать тесты для домашнего задания */
 
