@@ -17,6 +17,7 @@ public class MyHomeworkTests {
         driver.quit();
     }
 
+
     @Test
     public void searchingElementsFrontPageBookstore1() {
         driver.navigate().to("https://qajava.skillbox.ru/index.html");//переходим на главную страницу сайта
